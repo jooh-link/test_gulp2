@@ -1,0 +1,204 @@
+.faq {
+    .sub_visual {
+        .bg {background: url(../img/sub_visual1.jpg) no-repeat center/cover;}
+    }
+
+    .inner {
+        .search {
+            width: 100%; text-align: center; margin-bottom: 80px;
+
+            label {
+                margin-right: 10px; font-size: 18px; color: #666; font-weight: bold;
+            }
+
+            input[type=text]{
+                width: 50%; height: 50px; box-sizing: border-box; padding: 10px 20px; border: none; border-bottom: 2px solid #666; margin-right: 10px;
+
+                &::placeholder {font-size: 14px; color: #ccc;}
+            }
+
+            a {
+                font-size: 18px; color: #666;
+            }
+        }
+
+        #tab {
+            width: 100%; padding-top: 150px; position: relative;
+
+            .btns {
+                width: (100% / 5); height: 60px;
+                position: absolute; top: 0;
+
+                &:nth-of-type(1) {left: (100% / 5) * 0;}
+                &:nth-of-type(2) {left: (100% / 5) * 1;}
+                &:nth-of-type(3) {left: (100% / 5) * 2;}
+                &:nth-of-type(4) {left: (100% / 5) * 3;}
+                &:nth-of-type(5) {left: (100% / 5) * 4;}
+
+                a {
+                    display: block; width: 100%; height: 100%;
+                    border: 1px solid #e8e8e8; border-bottom: 1px solid #999; box-sizing: border-box;
+                    font-size: 14px; color: #666; line-height: 60px; text-align: center;
+                    transition: 0.5s;
+
+                    &.on {
+                        border: 1px solid #999; border-bottom: none;
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            .boxs {
+                dl {
+                    border-top: 1px solid #aaa;
+                    display: none;
+
+                    &#tab1 {display: block;}
+
+                    dt {
+                        width: 100%; box-sizing: border-box; padding: 20px 0px; border-bottom: 1px solid #e8e8e8;
+                        transition: 0.5s; cursor: pointer; position: relative;
+
+                        &::after {content: ''; display: block; clear: both;}
+
+                        em {
+                            float: left; width: 15%; font-size: 16px; color: #999; font-style: normal; text-align: center;
+                        }
+
+                        p {
+                            float: left; width: 85%;
+                            
+                            a {
+                                font-size: 16px; color: #666; vertical-align: middle;
+                            }
+
+                            &::before {
+                                content: 'Q'; display: inline-block; width: 30px; height: 30px; margin-right: 10px; background: #ccc; border-radius: 50%; font-size: 15px; color: #fff; line-height: 25px; text-align: center;
+                            }
+                        }
+
+                        span {
+                            position: absolute; right: 50px; top: 50%; transform: translateY(-50%); color: #ccc;
+                        }
+
+                        .plus {display: block;}
+                        .minus {display: none;}
+
+                        &.on {
+                            p::before {background: #666;}
+
+                            .plus {display: none;}
+                            .minus {display: block; color: #aaa;}
+                        }
+                    }
+    
+                    dd {
+                        width: 100%; box-sizing: border-box; padding: 40px 100px 40px 215px; background: #f8f8f8; border-bottom: 1px solid #e8e8e8;
+                        font-size: 14px; line-height: 1.8; color: #666; display: none;
+                        
+                        p {
+                            position: relative;
+                            
+                            &::before {
+                                content: 'A'; display: inline-block; width: 30px; height: 30px;
+                                background: $assiColor1; border-radius: 50%;
+                                font-size: 15px; color: #fff; line-height: 30px; text-align: center;
+                                position: absolute; left: -40px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* ----------- tablet ----------- */
+@media screen and (max-width: $tablet){
+    .faq {
+        .inner {
+            .search {
+                label {display: none;}
+    
+                input[type=text]{
+                    width: 90%; margin-right: 2%; padding: 5px 20px;
+                }
+    
+                a {width: 8%;}
+            }
+
+            #tab {
+                .boxs {
+                    dl {
+                        dt {
+                            em {display: none;}
+        
+                            p {margin-left: 30px;}
+        
+                            span {right: 30px;}
+                        }
+        
+                        dd {
+                            padding: 40px 30px 40px 70px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ----------- mobile ----------- */
+@media screen and (max-width: $mobile){
+    .faq {
+        .inner {
+            #tab {
+                padding-top: 200px;
+
+                .btns {
+                    width: (100% / 3);
+        
+                    &:nth-of-type(1) {left: (100% / 3) * 0;}
+                    &:nth-of-type(2) {left: (100% / 3) * 1;}
+                    &:nth-of-type(3) {left: (100% / 3) * 2;}
+                    &:nth-of-type(4) {left: (100% / 3) * 0; top: 60px;}
+                    &:nth-of-type(5) {left: (100% / 3) * 1; top: 60px;}
+
+                    a {
+                        border: 1px solid #e8e8e8;
+                        font-size: 12px;
+    
+                        &.on {
+                            background: #666; border: none; color: #fff;
+                        }
+                    }
+                }
+        
+                .boxs {
+                    dl {
+                        dt {
+                            p {
+                                margin-left: 20px;
+
+                                a {font-size: 14px;}
+    
+                                &::before {
+                                    width: 22px; height: 22px; margin-right: 8px; font-size: 12px; line-height: 20px;
+                                }
+                            }
+        
+                            span {right: 20px;}
+                        }
+        
+                        dd {
+                            padding: 40px 50px; font-size: 12px;
+        
+                            p::before {width: 22px; height: 22px; font-size: 12px; line-height: 22px; left: -30px;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

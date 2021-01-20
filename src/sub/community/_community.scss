@@ -1,0 +1,269 @@
+
+$commuColor: #b8d4ec;
+
+.community {
+    .sub_visual {
+        .bg {background: url(../img/sub_visual1.jpg) no-repeat center/cover;}
+    }
+
+    .inner {
+        //notice
+        .notice {
+            width: 100%; margin-bottom: 80px;
+
+            &::after {content: ''; display: block; clear: both;}
+
+            li {
+                float: left; width: 380px; margin-right: 20px;
+
+                &:last-child {margin-right: 0;}
+
+                .pic {
+                    width: 100%; height: 180px; background: #eee; margin-bottom: 10px; position: relative;
+
+                    &::before {
+                        content: ''; display: block; width: 100%; height: 100%; position: absolute; left: 0; top: 0;
+                    }
+                }
+
+                &:nth-of-type(1) .pic::before {
+                    background: url(../img/notice1.jpg) no-repeat center/cover;
+                }
+                &:nth-of-type(2) .pic::before {
+                    background: url(../img/notice2.jpg) no-repeat center/cover;
+                }
+                &:nth-of-type(3) .pic::before {
+                    background: url(../img/notice3.jpg) no-repeat center/cover;
+                }
+
+                p {
+                    width: 100%;
+
+                    a {
+                        display: block; font: 16px/1.5 "arial"; color: #555;
+                    }
+                }
+            }
+        }
+
+        //search
+        .search {
+            text-align: center; font-size: 0; margin-bottom: 30px;
+
+            select {
+                width: 150px; height: 40px; box-sizing: border-box; padding-left: 15px; margin-right: 10px; border: 1px solid #ccc; color: #555;
+            }
+
+            input {
+                width: 400px; height: 40px; box-sizing: border-box; padding-left: 15px; border: 1px solid #ccc;
+            }
+
+            a {
+                display: inline-block; width: 40px; height: 40px; font-size: 22px; color: $commuColor; line-height: 40px; position: relative; left: -40px; top: 4px;
+            }
+         }
+
+         //table
+         table {
+            width:100%; border-top:2px solid $commuColor; margin-bottom:50px;
+
+            tr{
+                th {
+                    padding: 13px; background: rgb(242, 242, 242); font-size: 15px; color: #555;
+    
+                    &:nth-of-type(1) {width:10%;}
+                    &:nth-of-type(2) {width:60%;}
+                    &:nth-of-type(3) {width:15%;}
+                    &:nth-of-type(4) {width:15%;}
+                }
+    
+                td {
+                    padding:15px; border-bottom:1px solid #ddd; font: 15px/1 "arial"; color: rgb(151, 145, 145); text-align:center; transition:0.5s;
+    
+                    a {float:left; color:#777;}
+                }
+
+                &:hover td {
+                    background-color: rgb(235, 235, 235);
+                }
+
+                &.fixed td {
+                    font-weight: bold; color: #888; padding: 10px;
+
+                    span {
+                        display: inline-block; padding: 8px 12px; background: $commuColor; border-radius: 20px; font-size: 12px; color: #fff;
+                    }
+                }
+            }
+        }
+
+        //pagination
+        .pagination {
+            width:100%; text-align:center;
+
+            .prev, .next {font-size: 0;}
+            .prev a,.next a {
+                display:inline-block; width:25px; height:25px; margin-right: 5px; background: $commuColor; border-radius: 50%; font:bold 11px/25px "arial"; color:#fff; text-align:center;
+            }
+
+            .numbers {
+                display:inline-block; font-size:0; margin: 0 10px;
+
+                a {
+                    display:inline-block; width:20px; height:30px; padding-bottom: 10px; box-sizing: border-box; font:14px/30px "arial"; color:#666; text-align:center; margin:0px 5px; transition:0.5s;
+
+                    &.on {
+                        color: $commuColor; border-bottom: 1px solid $commuColor;
+                    }
+                }
+            }
+
+            .numbersMo {
+                display:none; font-size:0; width:50%; height:30px; font:14px/30px "arial"; color:#666;
+
+                span {
+                    font: bold 18px/30px "arial"; color: $commuColor;
+                }
+            }
+        }
+    }
+}
+
+
+/* ---------- tablet ---------- */
+@media screen and (max-width: $tablet){
+    .community {
+        .inner {
+            //notice
+            .notice {
+                li {
+                    width: 49%; margin-right: 2%;
+
+                    &:nth-of-type(1) {
+                        width: 100%; margin-right: 0%; margin-bottom: 30px;
+
+                        .pic {height: 280px;}
+                    }
+                    
+                    &:nth-of-type(3) {margin-right: 0%;}
+    
+                    p {
+                        text-align: center;
+                    }
+                }
+            }
+    
+            //search
+            .search {
+                position: relative;
+
+                select {
+                    width: 28%; margin-right: 2%;
+                }
+    
+                input {
+                    width: 70%;
+                }
+    
+                a {
+                    position: absolute; left: auto; right: 0px; top: -1px;
+                }
+             }
+    
+             //table
+             table {
+                tr{
+                    th {
+                        &:nth-of-type(1) {width:15%;}
+                        &:nth-of-type(2) {width:70%;}
+                        &:nth-of-type(3) {width:15%;}
+                        &:nth-of-type(4) {display: none;}
+                    }
+        
+                    td {
+                        &:nth-of-type(4) {display: none;}
+
+                        a {
+                            text-align: left;
+                        }
+                    }
+    
+                    &.fixed td {
+                        span {
+                            padding: 8px 10px;
+                        }
+                    }
+                }
+            }
+    
+            //pagination
+            .pagination {
+                width:100%; text-align:center;
+    
+                .prev a,.next a {
+                    display:inline-block; width:25px; height:25px; margin-right: 5px; background: $commuColor; border-radius: 50%; font:bold 11px/25px "arial"; color:#fff; text-align:center;
+                }
+    
+                .numbers {
+                    display:inline-block; font-size:0; margin: 0 10px;
+    
+                    a {
+                        display:inline-block; width:20px; height:30px; padding-bottom: 10px; box-sizing: border-box; font:14px/30px "arial"; color:#666; text-align:center; margin:0px 5px; transition:0.5s;
+    
+                        &.on {
+                            color: $commuColor; border-bottom: 1px solid $commuColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// mobile
+@media screen and (max-width: $mobile){
+    .community {
+        .inner {
+            //notice
+            .notice {
+                li {
+                    width: 100%; margin-right: 0%; margin-bottom: 30px;
+
+                    &:nth-of-type(1) {
+                        .pic {height: 140px;}
+                    }
+
+                    .pic {
+                        height: 140px;
+                    }
+                }
+            }
+    
+             //table
+             table {
+                tr{
+                    th {
+                        &:nth-of-type(1) {display: none;}
+                        &:nth-of-type(2) {width:85%;}
+                        &:nth-of-type(3) {width:15%;}
+                    }
+        
+                    td {
+                        &:nth-of-type(1) {display: none;}
+                    }
+    
+                    &.fixed td a {
+                        color: $commuColor;
+                    }
+                }
+            }
+    
+            //pagination
+            .pagination {
+                .numbers {display: none;}
+
+                .numbersMo {display: inline-block;}
+            }
+        }
+    }
+}

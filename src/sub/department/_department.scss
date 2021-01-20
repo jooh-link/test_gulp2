@@ -1,0 +1,253 @@
+.department {
+    .sub_visual {
+        .bg {background: url(../img/sub_visual1.jpg) no-repeat center/cover;}
+    }
+
+    .inner {
+        .title {
+            margin-bottom: 50px;
+
+            &::after {
+                content: ''; display: block; clear: both;
+            }
+
+            h2 {
+                float: left; width: 20%;
+                font-size: 15px; color: #aaa; font-weight: normal;
+            }
+
+            p {
+                float: left; width: 80%; box-sizing: border-box; padding: 20px 20px 0px 60px;
+                border-top: 1px solid #444;
+                font-size: 16px; color: #666; line-height: 1.4; text-align: justify;
+            }
+        }
+
+        .orgChart {
+            margin-bottom: 100px;
+
+            .division {
+                width: 90%; height: 800px; margin-left: 10%;
+                background: url(../img/bgDivision.png) no-repeat center/contain;
+                // filter: hue-rotate(235deg);
+    
+                .div_tree {
+                    opacity: 0; position: absolute; top: -9999px;
+                }
+            }
+        }
+
+        .history {
+            article {
+                width: 100%;
+
+                &:nth-of-type(odd) {
+                    .wrap {
+                        .content {
+                            float: right; margin-left: 4%;
+                        }
+    
+                        .pic {float: right;}
+                    }
+                }
+
+                &:nth-of-type(even) {
+                    .wrap {
+                        .content {
+                            float: left; margin-right: 4%;
+                        }
+    
+                        .pic {float: left;}
+                    }
+                }
+
+                .wrap {
+                    &::after {
+                        content: ''; display: block; clear: both;
+                    }
+
+                    .content {width: 46%;}
+
+                    .pic {
+                        width: 30%; height: 200px; padding-top: 80px;
+
+                        img {
+                            width: 100%; height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    dl {
+                        dt {
+                            margin-bottom: 30px;
+                            font-size: 40px; color: #333; font-weight: normal;
+                        }
+
+                        dd {
+                            width: 100%; height: 100px; padding-top: 15px;
+                            box-sizing: border-box; padding-right: 50px;
+                            border-top: 1px solid #bbb;
+
+                            &::after {
+                                content: ''; display: block; clear: both;
+                            }
+
+                            span {
+                                float: left; width: 20%; height: 100%;
+                                font-size: 16px; color: #333;
+                            }
+
+                            p {
+                                float: left; width: 80%;
+                                font-size: 16px; color: #444;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* ----------- tablet ----------- */
+@media screen and (max-width: $tablet){
+    .department {
+        .inner {
+            .orgChart {
+                .division {
+                    height: 60vw;
+                }
+            }
+        }
+    }
+}
+
+/* ----------- mobile ----------- */
+@media screen and (max-width: $mobile){
+    //변수
+    $color : #930c71;
+    $ht : 50px;
+    $gap : 20px;
+    // 선 길이 구하기 - (($ht + $gap) * 개수) - ($ht / 2)
+
+    .department {
+        .inner {
+            .orgChart {
+                .division {
+                    height: auto; background: none;
+        
+                    .div_tree {
+                        opacity: 1; position: relative; top: 0;
+    
+                        //1 depth
+                        > li {
+                            position: relative;
+    
+                            &.dot::after {
+                                content: ''; display: block; width: 12px; height: 12px;
+                                background: $color; border: 3px solid #fff; border-radius: 50%; box-sizing: border-box;
+                                position: absolute; bottom: -5px; left: 45px;
+                            }
+    
+                            span {
+                                display: block; width: 50%; height: $ht; margin-bottom: $gap; box-sizing: border-box;
+                                background: $color; border-radius: 25px;
+                                font-size: 14px; color: #fff; line-height: $ht; font-weight: bold; text-align: center;
+    
+                                //세로선
+                                &::after {
+                                    content: ''; display: block; width: 1px; height: (($ht + $gap) * 24) - ($ht / 2);
+                                    background: #ccc;
+                                    position: absolute; top: $ht; left: 50px;
+                                }
+    
+                                &.line {
+                                    background: #fff; border: 3px solid $color; color: $color; box-sizing: border-box; line-height: 44px;
+                                }
+                            }
+    
+                            //2 depth
+                            ul li {
+                                position: relative;
+    
+                                &.dot::after {
+                                    content: ''; display: block; width: 12px; height: 12px;
+                                    background: #777; border: 3px solid #fff; border-radius: 50%; box-sizing: border-box;
+                                    position: absolute; top: $ht / 2; left: 63px; transform: translateY(-50%);
+                                }
+                                
+                                span {
+                                    background: #777;
+                                    transform: translateX(70px);
+    
+                                    //가로선
+                                    &::before {
+                                        content: ''; display: block; width: 20px; height: 1px; background: #ccc;
+                                        position: absolute; top: 50%; left: $gap*(-1);
+                                    }
+    
+                                    &.line {
+                                        background: #fff; border: 3px solid #777; box-sizing: border-box; color: #777;
+    
+                                        &::before {
+                                            transform: translateX(-3px);
+                                        }
+                                    }
+                                }
+    
+                                //2dep 세로선 길이
+                                &:nth-of-type(1) span::after {display: none;}
+                                &:nth-of-type(2) span::after {display: none;}
+                                &:nth-of-type(3) span::after {height: (($ht + $gap) * 1) - ($ht / 2);}
+                                &:nth-of-type(4) span::after {height: (($ht + $gap) * 7) - ($ht / 2);}
+                                &:nth-of-type(5) span::after {height: (($ht + $gap) * 5) - ($ht / 2);}
+                                &:nth-of-type(6) span::after {height: (($ht + $gap) * 3) - ($ht / 2);}
+                                &:nth-of-type(7) span::after {height: (($ht + $gap) * 7) - ($ht / 2);}
+    
+                                //3 depth
+                                ul li {
+                                    span {
+                                        width: 55%;
+                                        background: #fff; border: 1px solid #777; color: #777; font-weight: normal;
+                                        transform: translateX(140px);
+    
+                                        //3dep 세로선 지우기
+                                        &::after {display: none;}
+                                    }
+                                }
+                                
+                                //감사실+홍보마케팅팀
+                                &.dif1 ul li {
+                                    span {
+                                        width: 50%;
+                                        transform: translateX(70px);
+                                    }
+    
+                                    &:nth-of-type(1) span::after {display: block; height: $gap; left: 50%;}
+                                    &:nth-of-type(2) span::before {display: none;}
+                                }
+                                
+                                //임시기구
+                                &.dif2 {
+                                    margin-left: 50px;
+    
+                                    span {
+                                        &::before {display: none;}
+                                        &::after {left: 50%;}
+                                    }
+    
+                                    ul li span {
+                                        width: 50%; transform: translateX(70px);
+                                        
+                                        &::before {display: none;}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

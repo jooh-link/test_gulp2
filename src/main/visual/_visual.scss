@@ -1,0 +1,26 @@
+#visual {
+    width: 100%; background: #ddd;
+
+    .inner {
+        width: 1180px; height: 500px; margin: 0 auto;
+    }
+}
+
+
+/* ----------- tablet ----------- */
+@media screen and (max-width:$tablet){
+    #visual {
+        .wrap {
+            height:400px; background:lightblue;
+        }
+    }
+}
+
+/* ----------- mobile ----------- */
+@media screen and (max-width:$mobile){
+    #visual {
+        .wrap {
+            height:200px; background:orange; 
+        }
+    }
+}

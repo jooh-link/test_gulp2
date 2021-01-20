@@ -1,0 +1,135 @@
+#work {
+    width: 100%;
+
+    h1 {
+        margin-bottom: 50px;
+        font: bold 26px/1 'arial'; color: #333; text-align: center;
+    }
+
+    .inner {
+        width: 1180px; margin: 50px auto;
+        position: relative;
+    
+        .content {
+            width: 90%; height: 400px; margin-right: 10%;
+
+            ul {
+                width: 100%; height: 100%;
+                background: #eee;
+
+                li {
+                    width: 100%; height: 100%;
+                    position: absolute;
+                    opacity: 0; transition: 0.5s;
+
+                    h2 {
+                        opacity: 0; transform: translateX(20px);
+                        transition: 0.5s 0s;
+
+                        // span {color: $mainColor;}
+                    }
+
+                    p {
+                        width: 40%;
+                        opacity: 0; transform: translateX(20px);
+                        transition: 0.5s 0.5s;
+                    }
+
+                    a {
+                        display: block;
+                        opacity: 0; transform: translateX(20px);
+                        transition: 0.5s 1s;
+                    }
+
+                    &.on {
+                        opacity: 1;
+                        h2,p,a {opacity: 1; transform: translateX(0px);}
+                    }
+                }
+            }
+        }
+        
+        .picture {
+            position: absolute; right: 0; top: 50px;
+            width: 60%; height: 400px;
+            overflow: hidden;
+    
+            .slider {
+                width: 100%; height: 100%;
+        
+                li {
+                    width: 100%; height: 100%;
+                    position: absolute; left: 100%; top: 0;
+
+                    img {
+                        width: 100%; height: 100%;
+                        object-fit: cover;
+                    }
+
+                    &.on {left: 0%;}
+                }
+            }
+        }
+        
+        .btn {
+            position: absolute; left: 40%; bottom: 50px; transform: translateX(-50px);
+            font-size: 0;
+
+            a {
+                display: inline-block; width: 50px; height: 50px;
+                font-size: 18px; text-align: center; line-height: 50px;
+
+                &.prev {
+                    background: $mainColor;
+                    color: #fff;
+                }
+
+                &.next {
+                    background: rgba(255,255,255,0.7);
+                    backdrop-filter: 10px;
+                    color: $mainColor;
+                }
+            }
+        }
+
+        .controls {
+            position: relative;
+            margin-top: 80px;
+
+            &::after {
+                content: ''; display: block; clear: both;
+            }
+    
+            .auto {
+                float: left; width: 10%;
+    
+                .start, .stop {
+                    color: #aaa;
+                    &.on {color: #666;}
+                }
+            }
+    
+            .navi {
+                float: left; width: 80%; height: 4px;
+                background: #ddd;
+                margin-top: 10px;
+    
+                li {
+                    float: left; width: (100% / 5); height: 100%;
+    
+                    a {
+                        display: block; width: 0%; height: 100%;
+                        background: #666; transition: 0.5s;
+    
+                        &.on {width: 100%;}
+                    }
+                }
+            }
+    
+            .index {
+                float: right; width: 10%;
+                text-align: right;
+            }
+        }
+    }
+}

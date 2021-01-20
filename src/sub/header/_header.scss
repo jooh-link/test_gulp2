@@ -1,0 +1,169 @@
+#header_sub {
+    width: 100%; 
+    background: linear-gradient(to bottom, #222, transparent, transparent);
+    position: fixed; left: 0; top: 0; z-index: 2;
+    transition: 0.5s;
+    
+    &.fix {
+        background: rgba(255,255,255,0.8);
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+
+        .inner {
+            >h1 a {color: #555;}
+
+            .menuWeb {
+                #gnb >li >a {color: #777;}
+            } 
+        }
+
+        &:hover {
+            background: #222;
+
+            .inner {
+                >h1 a {color: #eee;}
+    
+                .menuWeb {
+                    #gnb >li >a {
+                        color: #ccc;
+                        
+                        &:hover {color: $mainColor;}
+                    }
+
+                    .util li a:hover {color: $mainColor;}
+                }
+            }
+        }
+    }
+
+    .inner {
+        width: 1180px; height: 100px; margin: 0 auto;
+        box-sizing: border-box; padding-top: 30px;
+        position: relative;
+    
+        > h1 {
+            position: absolute; left: 0; top: 30px;
+            margin-bottom: 10px;
+            text-align: center; line-height: 1;
+
+            > a {
+                font-size: 26px; color: #eee;
+            }
+        }
+
+        .menuWeb {
+            #gnb {
+                position: absolute; left: 50%; bottom: 0px; transform: translateX(-60%);
+                width: 60%;
+
+                &::after {content: ''; display: block; clear: both;}
+
+                >li {
+                    float: left; width: (100% / 7);
+                
+                    >a {
+                        display: block; width: 100%; height: 100px;
+                        font-size: 15px; line-height: 100px; color: #ccc; text-align: center;
+                        transition: 0.5s;
+
+                        &::after {
+                            content: ''; display: block;
+                            width: 100%; height: 1px; background: $mainColor;
+                            opacity: 0; transition: 0.5s;
+                        }
+
+                        &:hover,
+                        &.on {
+                            color: $mainColor;
+                            &::after {opacity: 1;}
+                        }
+                    }
+
+                    .sub {
+                        width: 1180px; height: 300px; box-sizing: border-box; padding: 40px;
+                        background: rgba(255,255,255,0.7);
+                        position: absolute; left: 60%; margin-left: -590px; top: 100px;
+                        display: none;
+                    }
+                }
+            }
+
+            .util {
+                position: absolute; right: 0; top: 30px;
+    
+                &::after {
+                    content: ''; display: block; clear: both;
+                }
+    
+                li {
+                    float: left; margin-left: 15px;
+    
+                    a {
+                        display: block; width: 100%; height: 25px;
+                        font-size: 14px; color: #ccc; line-height: 25px;
+
+                        &:hover {color: $mainColor;}
+                    }
+
+                    &:nth-of-type(3) span {margin-left: 5px;}
+
+                    &:nth-of-type(4) {
+                        width: 25px; height: 25px; margin-left: 30px;
+                        border-radius: 50%; border: 1px solid #ddd;
+                        text-align: center; line-height: 25px;
+
+                        i {font-size: 13px;}
+                    }
+                }
+            }
+        }
+
+        .btnCall {
+            position: absolute; right: 0; bottom: 0;
+            font-size: 18px; color: #777; line-height: 80px;
+            display: none;
+        }
+
+        .menuMo {
+            position: fixed; top: 0px; left: -270px; z-index: 10; 
+            width: 270px; height: 100%; box-sizing: border-box; padding: 35px 30px;
+            background: #333;
+            transition: 0.5s;
+
+            &.on {left: 0px;}
+
+            h1 {
+                padding-bottom: 30px;
+                border-bottom: 1px solid #666;
+
+                a {
+                    display: block;
+                    color: #fff; text-align: center;
+                }
+                span {
+                    font-size: 12px; color:#aaa;
+                }
+            }
+
+            #gnbMo {
+                li {
+                    a {
+                        display:block; width:100%; padding:20px 0px;
+                        border-bottom:1px solid #444;
+                        font:bold 14px/1 "arial"; color:#888; text-align:center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* ----------- tablet ----------- */
+@media screen and (max-width:$tablet){
+
+}
+
+/* ----------- mobile ----------- */
+@media screen and (max-width:$mobile){
+    
+}
